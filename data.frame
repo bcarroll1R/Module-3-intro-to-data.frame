@@ -1,0 +1,52 @@
+> Name <- c("Jeb", "Donald", "Ted", "Marco", "Carly", "Hillary", "Bernie")
+> ABC_poll <- c(4, 62, 51, 21, 2, 14, 15)
+> NBC_poll <- c(12, 75, 43, 19, 1, 21, 19)
+> polls <- cbind(Name, ABC_poll, NBC_poll)
+> polls
+     Name      ABC_poll NBC_poll
+[1,] "Jeb"     "4"      "12"    
+[2,] "Donald"  "62"     "75"    
+[3,] "Ted"     "51"     "43"    
+[4,] "Marco"   "21"     "19"    
+[5,] "Carly"   "2"      "1"     
+[6,] "Hillary" "14"     "21"    
+[7,] "Bernie"  "15"     "19"    
+> polls.df <- data.frame(Name, ABC_poll, NBC_poll)
+> polls.df
+     Name ABC_poll NBC_poll
+1     Jeb        4       12
+2  Donald       62       75
+3     Ted       51       43
+4   Marco       21       19
+5   Carly        2        1
+6 Hillary       14       21
+7  Bernie       15       19
+> colMeans(polls.df)
+Error in colMeans(polls.df) : 'x' must be numeric
+> colMeans(polls.df[, 2:3])
+ABC_poll NBC_poll 
+24.14286 27.14286 
+> a <- c(1,2,3)
+> b <- c(10,20,30)
+> c <- c(100,200,300)
+> d <- c(1000,2000,3000)
+> C.df <- data.frame(a,b,c,d)
+> C.df
+  a  b   c    d
+1 1 10 100 1000
+2 2 20 200 2000
+3 3 30 300 3000
+> as.matrix(C.df)%*%b
+Error in as.matrix(C.df) %*% b : non-conformable arguments
+> C.df
+  a  b   c    d
+1 1 10 100 1000
+2 2 20 200 2000
+3 3 30 300 3000
+> mean(C.df)
+[1] NA
+Warning message:
+In mean.default(C.df) : argument is not numeric or logical: returning NA
+> colMeans(as.data.frame(C.df))
+   a    b    c    d 
+   2   20  200 2000 
